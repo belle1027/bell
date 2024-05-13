@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>새봄농장 3동 개체</title>
+    <style>
+        #imageContainer img {
+            /* display: 'none';  */
+            max-width: 100%; /* 이미지가 화면을 넘어가지 않도록 최대 너비를 제한합니다 */
+        }
+        #img0 {
+            display: block; /* 초기 화면에 기본 이미지를 표시합니다 */
+            border: 5px solid rgb(42, 209, 42); /* 초록색 테두리를 추가합니다 */
+        }
+        #img1 {
+            display: none; /* 초기 화면에 기본 이미지를 표시합니다 */
+            border: 5px solid rgb(42, 209, 42); /* 초록색 테두리를 추가합니다 */
+        }
+        #img2 {
+            display: none; /* 초기 화면에 기본 이미지를 표시합니다 */
+            border: 5px solid rgb(42, 209, 42); /* 초록색 테두리를 추가합니다 */
+        }
+    </style>
+</head>
+<body>
+    <h1>새봄농장 3동 개체 발정 및 건강 상태</h1>
+
+    <button id="button1">발정 알림</button>
+    <button id="button2">건강 알림</button>
+    <button id="button3">Reset</button>
+
+    <div id="imageContainer">
+        <img id="img0" src="fig.png" alt="기본 이미지">
+        <img id="img1" src="fig1.png" alt="첫 번째 이미지">
+        <img id="img2" src="fig2.png" alt="두 번째 이미지">
+    </div>
+
+    <script>
+        document.getElementById('button1').onclick = function() {
+            document.getElementById('img1').style.display = 'block'; // 첫 번째 이미지를 표시
+            document.getElementById('img2').style.display = 'none';  // 두 번째 이미지는 숨김
+            document.getElementById('img0').style.display = 'none';  // 기본 이미지는 숨김
+        };
+
+        document.getElementById('button2').onclick = function() {
+            document.getElementById('img1').style.display = 'none';  // 첫 번째 이미지는 숨김
+            document.getElementById('img2').style.display = 'block'; // 두 번째 이미지를 표시
+            document.getElementById('img0').style.display = 'none';  // 기본 이미지는 숨김
+        };
+
+        document.getElementById('button3').onclick = function() {
+            document.getElementById('img1').style.display = 'none';  // 모든 이미지를 숨김
+            document.getElementById('img2').style.display = 'none';
+            document.getElementById('img0').style.display = 'block'; // 기본 이미지를 다시 표시
+        };
+    </script>
+</body>
+</html>
+
