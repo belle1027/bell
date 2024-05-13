@@ -26,6 +26,32 @@
         button:hover {
             background-color: rgb(72, 38, 205); /* 마우스 오버 시 버튼 색을 조금 더 진한 초록색으로 변경합니다 */
         }
+
+
+        .cow-container {
+            display: box;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        .cow-box {
+            border: 2px solid green;
+            font-size: 16px;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+            width: 80px;
+        }
+        .cow-box:hover {
+            background-color: #ccffcc;
+            cursor: pointer;
+        }
+        #selectedImage {
+            max-width: 100%;
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -40,6 +66,15 @@
         <img id="img1" src="fig1.png" alt="첫 번째 이미지">
         <img id="img2" src="fig2.png" alt="두 번째 이미지">
     </div>
+
+    <div class="cow-container">
+        <!-- Each cow box is a button -->
+        <div class="cow-box" onclick="showImage()">3019</div>
+        <!-- Add more cow boxes as needed -->
+    </div>
+
+    <img id="selectedImage" src="fig4.png" alt="Selected Cow">
+
 
     <script>
         document.getElementById('button1').onclick = function() {
@@ -59,6 +94,11 @@
             document.getElementById('img2').style.display = 'none';
             document.getElementById('img0').style.display = 'block'; // 기본 이미지를 다시 표시
         };
+
+        function showImage() {
+            var image = document.getElementById('selectedImage');
+            image.style.display = 'block'; // Show the fig.png image when any cow is clicked
+        }
     </script>
 </body>
 </html>
