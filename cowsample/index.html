@@ -5,20 +5,26 @@
     <title>새봄농장 3동 개체</title>
     <style>
         #imageContainer img {
-            /* display: 'none';  */
             max-width: 100%; /* 이미지가 화면을 넘어가지 않도록 최대 너비를 제한합니다 */
+        }
+        #img0, #img1, #img2 {
+            display: none; /* 초기에는 모든 이미지를 숨깁니다 */
+            border: 5px solid rgb(42, 209, 42); /* 초록색 테두리를 추가합니다 */
         }
         #img0 {
             display: block; /* 초기 화면에 기본 이미지를 표시합니다 */
-            border: 5px solid rgb(42, 209, 42); /* 초록색 테두리를 추가합니다 */
         }
-        #img1 {
-            display: none; /* 초기 화면에 기본 이미지를 표시합니다 */
-            border: 5px solid rgb(42, 209, 42); /* 초록색 테두리를 추가합니다 */
+        button {
+            padding: 10px 20px; /* 버튼의 패딩을 조절하여 크기를 늘립니다 */
+            font-size: 16px; /* 폰트 크기를 늘립니다 */
+            background-color: rgb(62, 98, 227); /* 버튼의 배경색을ssssssss 초록색으로 설정합니다 */
+            color: white; /* 텍스트 색상을 흰색으로 설정합니다 */
+            border: none; /* 테두리를 제거합니다 */
+            border-radius: 5px; /* 버튼 모서리를 둥글게 처리합니다 */
+            cursor: pointer; /* 마우스 오버 시 커서를 포인터로 변경합니다 */
         }
-        #img2 {
-            display: none; /* 초기 화면에 기본 이미지를 표시합니다 */
-            border: 5px solid rgb(42, 209, 42); /* 초록색 테두리를 추가합니다 */
+        button:hover {
+            background-color: rgb(72, 38, 205); /* 마우스 오버 시 버튼 색을 조금 더 진한 초록색으로 변경합니다 */
         }
     </style>
 </head>
@@ -56,4 +62,3 @@
     </script>
 </body>
 </html>
-
