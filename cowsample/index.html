@@ -7,14 +7,15 @@
         #imageContainer img {
             max-width: 100%; /* 이미지가 화면을 넘어가지 않도록 최대 너비를 제한합니다 */
         }
-        #img0, #img1, #img2 {
+        #img1, #img2, #img3 {
             display: none; /* 초기에는 모든 이미지를 숨깁니다 */
             border: 5px solid rgb(42, 209, 42); /* 초록색 테두리를 추가합니다 */
         }
         #img0 {
             display: block; /* 초기 화면에 기본 이미지를 표시합니다 */
+            border: 5px solid rgb(42, 209, 42);
         }
-        button {
+        #button1, #button2, #button3 {
             padding: 10px 20px; /* 버튼의 패딩을 조절하여 크기를 늘립니다 */
             font-size: 16px; /* 폰트 크기를 늘립니다 */
             background-color: rgb(62, 98, 227); /* 버튼의 배경색을ssssssss 초록색으로 설정합니다 */
@@ -66,13 +67,42 @@
             background-color: rgba(255, 255, 255, 0.8);
             font-size: 12px;
         }
+        .image-button {
+        border: none; /* Removes the default border */
+        cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+        background-size: cover; /* Ensures the image covers the entire button */
+        position: relative; /* Needed to position the text absolutely within the button */
+        width: 100px; /* Set the width of the button */
+        height: 100px; /* Set the height of the button */
+        display: inline-block; /* Allows the button to have a width and height */
+        overflow: hidden; /* Ensures no content spills outside the button */
+        }
+        .button-text {
+        position: absolute; /* Positions the text over the button */
+        width: 100%; /* Ensures the text spans the entire width of the button */
+        text-align: left; /* Centers the text horizontally */
+        transform: translateX(-20%);
+        top: 50%; /* Moves the text to the middle vertically */
+        transform: translateY(-50%); /* Adjusts the position of the text to truly center it */
+        font-size: 20px; /* Sets the font size of the text */
+        color: rgb(210, 34, 34); /* Sets the color of the text */
+        font-weight: bold; /* Makes the text bold */
+        z-index: 1; /* Ensures the text is above the image */
+        }
+        #cow1 {
+        position: absolute; /* Makes image cover the entire button */
+        top: 0; /* Aligns image to the top */
+        left: 3%; /* Aligns image to the left */
+        width: 100%; /* Full width of the button */
+        height: 100%; /* Full height of the button */
+        }
 
     </style>
 </head>
 <body>
     <h1>새봄농장 3동 개체 발정 및 건강 상태</h1>
-    <div id="updateInfo">최근 업데이트 : 2024-05-13 17:30:00</div>
-
+    <div id="updateInfo">최근 업데이트 : 2024-05-14 18:30:00</div>
+    <div> </div>
     <button id="button1">발정 알림</button>
     <button id="button2">건강 알림</button>
     <button id="button3">Reset</button>
@@ -82,15 +112,26 @@
         <img id="img1" src="fig1.png" alt="첫 번째 이미지">
         <img id="img2" src="fig2.png" alt="두 번째 이미지">
     </div>
-
+    <div> </div>
     <p class="red-text"> 발정 개체의 자세한 정보는 클릭!</p>
-    <div class="cow-container">
-        <!-- Each cow box is a button -->
-        <div class="cow-box" onclick="showImage()">3019</div>
-        <!-- Add more cow boxes as needed -->
+    <div> </div>
+    <button id="imbutton" class="image-button" >
+        <img id="cow1" src="cow1.png" alt="이미지 버튼">
+        <span class="button-text">3044</span>
+    </button>
+    <p > </p>
+
+    <!-- <div class="cow-container">
+        Each cow box is a button -->
+        <!-- <div class="cow-box" onclick="showImage()">3019</div>
+        <div class="cow-box" onclick="showImage2()">3019</div>
+        Add more cow boxes as needed -->
+    <div> </div>
+
+    <div id="imageContainer">
+        <img id="img3" src="heat773.png" alt="세 번째 이미지">
     </div>
 
-    <img id="selectedImage" src="fig4.png" alt="Selected Cow">
 
 
     <script>
@@ -110,12 +151,17 @@
             document.getElementById('img1').style.display = 'none';  // 모든 이미지를 숨김
             document.getElementById('img2').style.display = 'none';
             document.getElementById('img0').style.display = 'block'; // 기본 이미지를 다시 표시
+            document.getElementById('img3').style.display = 'none'; 
         };
 
-        function showImage() {
-            var image = document.getElementById('selectedImage');
-            image.style.display = 'block'; // Show the fig.png image when any cow is clicked
+        document.getElementById('imbutton').onclick = function() {
+            // var image = document.getElementById('imbutton');
+            document.getElementById('img3').style.display = 'block'; 
         }
+        // function showImage2() {
+        //     var image = document.getElementById('selectedImage2');
+        //     image.style.display = 'block';
+        // }
     </script>
 </body>
 </html>
