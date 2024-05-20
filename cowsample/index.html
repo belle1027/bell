@@ -1,22 +1,107 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>새봄농장 3동 개체</title>
-    <style>
+<meta charset="UTF-8">
+<title>Button Layout</title>
+<style>
+    .container {
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        margin: 40px;
+        /* border: 1px solid #ccc; */
+        border: 5px solid rgb(88, 231, 88);
+        background-color: #91fd79d4;
+        border-radius: 50px;
+    }
+    .button-row {
+        display: flex;
+    }
+    .image-button{
+        position: relative;
+    }
+    .button-text {
+        position: absolute; /* Absolute position for the text */
+        top: 50%; /* Center the text vertically */
+        left: 60%; /* Center the text horizontally */
+        transform: translate(-50%, -50%); 
+        color: rgb(0, 0, 0); /* Text color */
+        font-size: 20px; /* Text size */
+        font-weight: bold; /* Text weight */
+        z-index: 1; 
+    }
+
+
+    button {
+        width: 150px;
+        height: 130px;
+        margin: 10px;
+        /* background-color: #f0f0f0; */
+        border: 0.1px solid #91fd79d4;
+        /* border-radius: 5px; */
+        background-color: transparent;
+        overflow: hidden;
+    }
+    button:hover {
+            background-color: rgb(221, 98, 27); /* 마우스 오버 시 버튼 색을 조금 더 진한 초록색으로 변경합니다 */
+        }
+    button img {
+        width: 100%;
+        height: 100%; /* 이미지가 버튼 크기에 맞게 조정 */
+    }
+
+    .wooden-sign {
+        position: absolute;
+        width: 90px; /* Set the width of the sign */
+        height: 40px; /* Set the height of the sign */
+        background-color: #e4ba70; /* Ochre background color */
+        border: 5px solid #8b4513; /* Brown border */
+        box-shadow: 0 0 3px #333; /* Slight shadow for 3D effect */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 95%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        font-size: 22px; /* Font size */
+        font-weight: bold; /* Bold font */
+        color: rgb(35, 10, 10); /* Text color */
+        text-shadow: 1px 1px 2px #fff; /* White text shadow for contrast */
+    }
+    .woodbutton {
+        position: relative;
+    }
+
+    #button3-4 {
+            border: 5px solid #f53737;
+            border-radius: 15px; /* 버튼 모서리를 둥글게 처리합니다 */
+            cursor: pointer; /* 마우스 오버 시 커서를 포인터로 변경합니다 */
+            background-color: rgba(235, 120, 118, 0.803);
+        }
+        #button3-4:hover{
+            background-color: rgb(251, 0, 0); /* 마우스 오버 시 버튼 색을 조금 더 진한 초록색으로 변경합니다 */
+        }
+
         #imageContainer img {
             max-width: 100%; /* 이미지가 화면을 넘어가지 않도록 최대 너비를 제한합니다 */
         }
-        #img1, #img2, #img3 {
+
+        #img3 {
             display: none; /* 초기에는 모든 이미지를 숨깁니다 */
-            border: 5px solid rgb(42, 209, 42); /* 초록색 테두리를 추가합니다 */
+            border: 5px solid rgb(222, 50, 38); /* 초록색 테두리를 추가합니다 */
         }
-        #img0 {
-            display: block; /* 초기 화면에 기본 이미지를 표시합니다 */
-            border: 5px solid rgb(42, 209, 42);
-        }
-        #button1, #button2, #button3 {
-            padding: 10px 20px; /* 버튼의 패딩을 조절하여 크기를 늘립니다 */
+        #buttonreset{
+            width: 100px;
+            height: 70px;
+            padding: 5px 5px; /* 버튼의 패딩을 조절하여 크기를 늘립니다 */
             font-size: 16px; /* 폰트 크기를 늘립니다 */
             background-color: rgb(62, 98, 227); /* 버튼의 배경색을ssssssss 초록색으로 설정합니다 */
             color: white; /* 텍스트 색상을 흰색으로 설정합니다 */
@@ -24,44 +109,9 @@
             border-radius: 5px; /* 버튼 모서리를 둥글게 처리합니다 */
             cursor: pointer; /* 마우스 오버 시 커서를 포인터로 변경합니다 */
         }
-        #button1:hover, #button2:hover, #button3:hover {
+        #buttonreset:hover{
             background-color: rgb(72, 38, 205); /* 마우스 오버 시 버튼 색을 조금 더 진한 초록색으로 변경합니다 */
         }
-        button:hover {
-            background-color: rgb(27, 221, 46); /* 마우스 오버 시 버튼 색을 조금 더 진한 초록색으로 변경합니다 */
-        }
-
-        .red-text {
-            color: red;
-            font-size: 20px; /* 글자 크기 키우기 */
-            font-weight: bold; /* 글자를 굵게 */
-        }
-
-
-        .cow-container {
-            display: box;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 10px;
-        }
-        .cow-box {
-            border: 2px solid green;
-            font-size: 16px;
-            padding: 15px;
-            margin: 10px;
-            text-align: center;
-            border-radius: 10px;
-            width: 80px;
-        }
-        .cow-box:hover {
-            background-color: #ccffcc;
-            cursor: pointer;
-        }
-        #selectedImage {
-            max-width: 100%;
-            display: none;
-        }
-
         #updateInfo {
             position: absolute;
             top: 0;
@@ -70,101 +120,164 @@
             background-color: rgba(255, 255, 255, 0.8);
             font-size: 12px;
         }
-        .image-button {
-        border: none; /* Removes the default border */
-        cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
-        background-size: cover; /* Ensures the image covers the entire button */
-        position: relative; /* Needed to position the text absolutely within the button */
-        width: 100px; /* Set the width of the button */
-        height: 100px; /* Set the height of the button */
-        display: inline-block; /* Allows the button to have a width and height */
-        overflow: hidden; /* Ensures no content spills outside the button */
-        }
-        .button-text {
-        position: absolute; /* Positions the text over the button */
-        width: 100%; /* Ensures the text spans the entire width of the button */
-        text-align: left; /* Centers the text horizontally */
-        transform: translateX(-20%);
-        top: 50%; /* Moves the text to the middle vertically */
-        transform: translateY(-50%); /* Adjusts the position of the text to truly center it */
-        font-size: 20px; /* Sets the font size of the text */
-        color: black; /* Sets the color of the text */
-        font-weight: bold; /* Makes the text bold */
-        z-index: 1; /* Ensures the text is above the image */
-        }
-        #cow1 {
-        position: absolute; /* Makes image cover the entire button */
-        top: 0; /* Aligns image to the top */
-        left: 3%; /* Aligns image to the left */
-        width: 100%; /* Full width of the button */
-        height: 100%; /* Full height of the button */
+        .red-text {
+            color: red;
+            font-size: 20px; /* 글자 크기 키우기 */
+            font-weight: bold; /* 글자를 굵게 */
         }
 
-    </style>
+
+</style>
 </head>
 <body>
-    <h1>새봄농장 3동 개체 발정 및 건강 상태</h1>
-    <div id="updateInfo">최근 업데이트 : 2024-05-20 10:00:00</div>
-    <div> </div>
-    <button id="button1">발정 알림</button>
-    <button id="button2">건강 알림</button>
-    <button id="button3">Reset</button>
+    <h1>새봄농장 3동 개체 발정</h1>
+    <div id="updateInfo">최근 업데이트 : 2024-05-20 21:00:00</div>
 
-    <div id="imageContainer">
-        <img id="img0" src="fig.png" alt="기본 이미지">
-        <img id="img1" src="fig1.png" alt="첫 번째 이미지">
-        <img id="img2" src="fig2.png" alt="두 번째 이미지">
-    </div>
-    <div> </div>
-    <p class="red-text"> 발정 개체의 자세한 정보는 클릭!</p>
-    <div> </div>
-    <button id="imbutton" class="image-button" >
-        <img id="cow1" src="cow1.png" alt="이미지 버튼">
-        <span class="button-text">3039</span>
-    </button>
-    <p > </p>
 
-    <!-- <div class="cow-container">
-        Each cow box is a button -->
-        <!-- <div class="cow-box" onclick="showImage()">3019</div>
-        <div class="cow-box" onclick="showImage2()">3019</div>
-        Add more cow boxes as needed -->
-    <div> </div>
+    <button id="buttonreset">Reset</button>
 
-    <div id="imageContainer">
-        <img id="img3" src="plot_3039.png" alt="세 번째 이미지">
+<div class="container">
+    <div class="woodbutton">
+    <div class="button-group">
+        <div class="button-row">
+            <button id="1-1" class="image-button" ><img src="fig0.png" alt="버튼 1-1"><span class="button-text">3069</span></button>
+            <button id="1-2" class="image-button" ><img src="fig0.png" alt="버튼 1-2"><span class="button-text">3055</span></button>
+        </div>
+        <div class="button-row">
+            <button id="1-3" class="image-button" ><img src="fig0.png" alt="버튼 1-3"><span class="button-text">3061</span></button>
+            <button id="1-4" class="image-button" ><img src="fig0.png" alt="버튼 1-4"><span class="button-text">1091</span></button>
+        </div> </div>
+        <div class="wooden-sign">
+            3-1
+        </div>
     </div>
 
+    <div class="woodbutton">
+    <div class="button-group">
+        <div class="button-row">
+            <button id="2-1" class="image-button" ><img src="fig0.png" alt="버튼 2-1"><span class="button-text">3031</span></button>
+            <button id="2-2" class="image-button" ><img src="fig0.png" alt="버튼 2-2"><span class="button-text">3037</span></button>
+        </div>
+        <div class="button-row">
+            <button id="2-3" class="image-button" ><img src="fig0.png" alt="버튼 2-3"><span class="button-text">3015</span></button>
+            <button id="2-4" class="image-button" ><img src="fig0.png" alt="버튼 2-4"><span class="button-text">3045</span></button>
+        </div></div>
+        <div class="wooden-sign">
+            3-2
+        </div>
+    </div>
 
+    <div class="woodbutton">
+    <div class="button-group">
+        <div class="button-row">
+            <button id="button3-1" class="image-button" ><img src="fig.png" alt="버튼 3-1"><span class="button-text">3027</span></button>
+            <button id="3-2" class="image-button" ><img src="fig.png" alt="버튼 3-2"><span class="button-text">3043</span></button>
+        </div>
+        <div class="button-row">
+            <button id="3-3" class="image-button" ><img src="fig.png" alt="버튼 3-3"><span class="button-text">3044</span></button>
+            <button id="button3-4" class="image-button" ><img src="fig.png" alt="버튼 3-4"><span class="button-text">3039</span></button>
+        </div></div>
+        <div class="wooden-sign">
+            3-3
+        </div>
+    </div>
 
-    <script>
-        document.getElementById('button1').onclick = function() {
-            document.getElementById('img1').style.display = 'block'; // 첫 번째 이미지를 표시
-            document.getElementById('img2').style.display = 'none';  // 두 번째 이미지는 숨김
-            document.getElementById('img0').style.display = 'none';  // 기본 이미지는 숨김
-        };
+    <div class="woodbutton">
+    <div class="button-group">
+        <div class="button-row">
+            <button id="4-1" class="image-button" ><img src="fig.png" alt="버튼 4-1"><span class="button-text">1801</span></button>
+            <button id="4-2" class="image-button" ><img src="fig.png" alt="버튼 4-2"><span class="button-text">3041</span></button>
+        </div>
+        <div class="button-row">
+            <button id="4-3" class="image-button" ><img src="fig.png" alt="버튼 4-3"><span class="button-text">3019</span></button>
+            <button id="4-4" class="image-button" ><img src="fig.png" alt="버튼 4-4"><span class="button-text">3046</span></button>
+        </div></div>
+        <div class="wooden-sign">
+            3-4
+        </div>
+    </div>
 
-        document.getElementById('button2').onclick = function() {
-            document.getElementById('img1').style.display = 'none';  // 첫 번째 이미지는 숨김
-            document.getElementById('img2').style.display = 'block'; // 두 번째 이미지를 표시
-            document.getElementById('img0').style.display = 'none';  // 기본 이미지는 숨김
-        };
+</div>
 
-        document.getElementById('button3').onclick = function() {
-            document.getElementById('img1').style.display = 'none';  // 모든 이미지를 숨김
-            document.getElementById('img2').style.display = 'none';
-            document.getElementById('img0').style.display = 'block'; // 기본 이미지를 다시 표시
+<div class="container">
+    <div class="woodbutton">
+    <div class="button-group">
+        <div class="button-row">
+            <button id="5-1" class="image-button" ><img src="fig.png" alt="버튼 5-1"><span class="button-text">3016</span></button>
+            <button id="5-2" class="image-button" ><img src="fig.png" alt="버튼 5-2"><span class="button-text">3023</span></button>
+        </div>
+        <div class="button-row">
+            <button id="5-3" class="image-button" ><img src="fig.png" alt="버튼 5-3"><span class="button-text">3008</span></button>
+            <button id="5-4" class="image-button" ><img src="fig.png" alt="버튼 5-4"><span class="button-text">3013</span></button>
+        </div></div>
+        <div class="wooden-sign">
+            3-5
+        </div>
+    </div>
+
+    <div class="woodbutton">
+    <div class="button-group">
+        <div class="button-row">
+            <button>버튼 6-1</button>
+            <button>버튼 6-2</button>
+        </div>
+        <div class="button-row">
+            <button>버튼 6-3</button>
+            <button>버튼 6-4</button>
+        </div>></div>
+        <div class="wooden-sign">
+            3-6
+        </div>
+    </div>
+
+    <div class="woodbutton">
+    <div class="button-group">
+        <div class="button-row">
+            <button>버튼 7-1</button>
+            <button>버튼 7-2</button>
+        </div>
+        <div class="button-row">
+            <button>버튼 7-3</button>
+            <button>버튼 7-4</button>
+        </div>></div>
+        <div class="wooden-sign">
+            3-8
+        </div>
+    </div>
+
+    <div class="woodbutton">
+    <div class="button-group">
+        <div class="button-row">
+            <button>버튼 8-1</button>
+            <button>버튼 8-2</button>
+        </div>
+        <div class="button-row">
+            <button>버튼 8-3</button>
+            <button>버튼 8-4</button>
+        </div>></div>
+        <div class="wooden-sign">
+            3-9
+        </div>
+    </div>
+</div>
+
+<p class="red-text"> ================================================================================================================================================================ </p>
+
+<div id="imageContainer">
+    <img id="img3" src="plot_3039.png" alt="세 번째 이미지">
+</div>
+
+<script>
+
+document.getElementById('buttonreset').onclick = function() {
             document.getElementById('img3').style.display = 'none'; 
         };
 
-        document.getElementById('imbutton').onclick = function() {
-            // var image = document.getElementById('imbutton');
-            document.getElementById('img3').style.display = 'block'; 
-        }
-        // function showImage2() {
-        //     var image = document.getElementById('selectedImage2');
-        //     image.style.display = 'block';
-        // }
-    </script>
+
+document.getElementById('button3-4').onclick = function() {
+            document.getElementById('img3').style.display = 'block'; // 첫 번째 이미지를 표시
+        };
+
+</script>
 </body>
 </html>
